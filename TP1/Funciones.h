@@ -6,7 +6,7 @@
  * \return int La suma entre ambos numeros
  *
  */
-int Sumar(int primerNumero, int segundoNumero);
+float Sumar(float primerNumero, float segundoNumero);
 
 /** \brief Calcula la resta entre dos numeros enteros
  *
@@ -15,7 +15,7 @@ int Sumar(int primerNumero, int segundoNumero);
  * \return int La resta entre los numeros
  *
  */
-int Restar(int primerNumero, int segundoNumero);
+float Restar(float primerNumero, float segundoNumero);
 
 /** \brief Calcula la division entre dos numeros enteros
  *
@@ -24,7 +24,7 @@ int Restar(int primerNumero, int segundoNumero);
  * \return int La division entre los numeros
  *
  */
-float Dividir(int primerNumero, int segundoNumero);
+float Dividir(float primerNumero, float segundoNumero);
 
 /** \brief Calcula la multiplicacion entre dos numeros enteros
  *
@@ -33,7 +33,7 @@ float Dividir(int primerNumero, int segundoNumero);
  * \return int La multiplicacion entre los numeros
  *
  */
-int Multiplicar(int primerNumero, int segundoNumero);
+float Multiplicar(float primerNumero, float segundoNumero);
 
 /** \brief Calcula el factorial de un numero entero entero
  *
@@ -41,4 +41,12 @@ int Multiplicar(int primerNumero, int segundoNumero);
  * \return int Factorial del numero
  *
  */
-int CalcularFactorial(int);
+double CalcularFactorial(double);
+
+/** \brief Valida si un numero es entero
+ *
+ * \param  int El numero a ser validado
+ * \return int El
+ *
+ */
+int ValidarEntero(float numero);
