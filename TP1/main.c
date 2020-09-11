@@ -44,7 +44,7 @@ int main()
       printf("\n\nIngrese una opcion: ");
       scanf("%d", &opcion);
 
-      while(opcion > 6)
+      while(opcion > 6 || opcion < 1)
       {
           printf("\nOpcion ivalida. Ingrese una opcion: ");
           scanf("%d", &opcion);
