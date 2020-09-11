@@ -173,13 +173,11 @@ int main()
                 else
                 {
                     opcion = 5;
-                    printf("\nGracias por utilizar la calculadora!\n\n");
                 }
             }
             break;
 
         case 5:
-            printf("\nGracias por utilizar la calculadora!\n\n");
             break;
       }
     } while(opcion != 5);
