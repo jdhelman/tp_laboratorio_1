@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include "Funciones.h"
 
@@ -15,47 +16,40 @@ int main()
     int opcion;
     int banderaA;
     int banderaB;
+    int banderaOpciones;
     int validacionEnteroA;
     int validacionEnteroB;
+    char preguntaFinal;
 
     banderaA = 0;
     banderaB = 0;
+    banderaOpciones = 0;
+
 
     do
     {
-      printf(":::CALCULADORA:::\n");
-      printf("\n::Seleccione una opcion::\n");
       if(banderaA == 0)
       {
-         printf("\n1 Ingresar el primer operando (A = x)");
+         Menu1();
+
+      }
+      else if(banderaB == 0)
+      {
+          Menu2(primerNumero);
+          Menu4();
       }
       else
       {
-         printf("\n1 Ingresar el primer operando (A = %.2f)", primerNumero);
+          Menu3(primerNumero, segundoNumero);
+          Menu4();
       }
-      if(banderaB == 0)
-      {
-         printf("\n1 Ingresar el primer operando (B = y)");
-      }
-      else
-      {
-         printf("\n2 Ingresar el segundo operando (B = %.2f)", segundoNumero);
-      }
-      printf("\n3 Calcular todas las operaciones: \n");
-      printf("\n    a) Sumar (%.2f + %.2f)", primerNumero, segundoNumero);
-      printf("\n    b) Restar (%.2f - %.2f)", primerNumero, segundoNumero);
-      printf("\n    c) Dividir (%.2f / %.2f)", primerNumero, segundoNumero);
-      printf("\n    d) Multiplicar (%.2f * %.2f)", primerNumero, segundoNumero);
-      printf("\n    e) Calcular factorial de %.2f y %.2f\n", primerNumero, segundoNumero);
-      printf("\n4 Informar resultados:");
-      printf("\n5 Salir");
 
       printf("\n\nIngrese una opcion: ");
       scanf("%d", &opcion);
 
       while(opcion > 6)
       {
-          printf("Opcion ivalida. Ingrese una opcion: ");
+          printf("\nOpcion ivalida. Ingrese una opcion: ");
           scanf("%d", &opcion);
       }
 
@@ -64,78 +58,125 @@ int main()
         case 1:
             printf("Ingrese el primer operando: ");
             scanf("%f", &primerNumero);
+            printf("\n");
+            validacionEnteroA = ValidarEntero(primerNumero);
+            banderaOpciones = 1;
             banderaA = 1;
             break;
 
         case 2:
-            printf("Ingrese el segundo operando: ");
-            scanf("%f", &segundoNumero);
-            banderaB = 1;
+            if(banderaOpciones == 0)
+            {
+                printf("Error, primero debe ingresar el primer operando.\n\n");
+            }
+            else
+            {
+                printf("Ingrese el segundo operando: ");
+                scanf("%f", &segundoNumero);
+                printf("\n");
+                validacionEnteroB = ValidarEntero(segundoNumero);
+                banderaB = 1;
+                banderaOpciones = 2;
+            }
             break;
 
         case 3:
-            printf("\nSe estan calculando sus operaciones...\n\n");
-            suma = Sumar(primerNumero, segundoNumero);
-            resta = Restar(primerNumero, segundoNumero);
-            if(segundoNumero != 0)
-            {
-                division = Dividir(primerNumero, segundoNumero);
-            }
-            multiplicacion = Multiplicar(primerNumero, segundoNumero);
 
-            validacionEnteroA = ValidarEntero(primerNumero);
-            validacionEnteroB = ValidarEntero(segundoNumero);
-
-            if(validacionEnteroA == 1)
+            if(banderaOpciones < 2)
             {
-                factorialA = CalcularFactorial(primerNumero);
+                printf("Error, primero debe ingresar los operandos.\n\n");
             }
             else
             {
-                factorialA = 0;
-            }
+                printf("Se calcularon las operaciones...\n\n");
+                suma = Sumar(primerNumero, segundoNumero);
+                resta = Restar(primerNumero, segundoNumero);
+                if(segundoNumero != 0)
+                {
+                    division = Dividir(primerNumero, segundoNumero);
+                }
+                multiplicacion = Multiplicar(primerNumero, segundoNumero);
 
-            if(validacionEnteroB == 1)
-            {
-                factorialB = CalcularFactorial(segundoNumero);
-            }
-            else
-            {
-                factorialB = 0;
-            }
+                if(validacionEnteroA == 1)
+                {
+                    factorialA = CalcularFactorial(primerNumero);
+                }
+                else
+                {
+                    factorialA = 0;
+                }
 
-            printf("\n\nPrimer numero: %d", validacionEnteroA);
-            printf("\nSegundo numero: %d\n\n", validacionEnteroB);
-
+                if(validacionEnteroB == 1)
+                {
+                    factorialB = CalcularFactorial(segundoNumero);
+                }
+                else
+                {
+                    factorialB = 0;
+                }
+                banderaOpciones = 3;
+            }
             break;
 
         case 4:
-            printf("\n      El resultado de %.2f + %.2f es: %.2f", primerNumero, segundoNumero, suma);
-            printf("\n      El resultado de %.2f - %.2f es: %.2f", primerNumero, segundoNumero, resta);
-            if(segundoNumero != 0)
+            printf("\n");
+            Menu3(primerNumero, segundoNumero);
+            printf("\n4 Informar resultados: \n");
+            if(banderaOpciones < 3)
             {
-                printf("\n      El resultado de %.2f / %.2f es: %.2f", primerNumero, segundoNumero, division);
+                printf("Error, primero debe ingresar los operandos y calcularlos\n\n");
             }
-            else
+            else if (banderaOpciones == 3)
             {
-                printf("\n      No se puede dividir por 0");
-            }
-            printf("\n      El resultado de %.2f * %.2f es: %.2f", primerNumero, segundoNumero, multiplicacion);
-            if(factorialA == 0)
-            {
-                printf("\n      No se puede calcular el factorial de un numero decimal");
-            }
-            else
-            {
-                printf("\n      El factorial de %.0f es: %.0f", primerNumero, factorialA);
-            }
-            if(factorialB == 0)
-            {
-                printf("\n      No se puede calcular el factorial de un numero decimal\n\n");
-            }
-            else
-            {
-                printf("\n      El factorial de %.0f es: %.0f\n\n", segundoNumero, factorialB);
+                printf("\n\ta) El resultado de %.2f + %.2f es: %.2f", primerNumero, segundoNumero, suma);
+                printf("\n\tb) El resultado de %.2f - %.2f es: %.2f", primerNumero, segundoNumero, resta);
+                if(segundoNumero != 0)
+                {
+                    printf("\n\tc) El resultado de %.2f / %.2f es: %.2f", primerNumero, segundoNumero, division);
+                }
+                else
+                {
+                    printf("\n\tc) No se puede dividir por 0");
+                }
+                printf("\n\td) El resultado de %.2f * %.2f es: %.2f", primerNumero, segundoNumero, multiplicacion);
+                if(factorialA == 0)
+                {
+                    printf("\n\te) No se puede calcular el factorial de un numero decimal o negativo");
+                }
+                else
+                {
+                    printf("\n\te) El factorial de %.0f es: %.0f", primerNumero, factorialA);
+                }
+                if(factorialB == 0)
+                {
+                    printf("\n\tf) No se puede calcular el factorial de un numero decimal o negativo\n");
+                }
+                else
+                {
+                    printf("\n\tf) El factorial de %.0f es: %.0f\n", segundoNumero, factorialB);
+                }
+                printf("\n5 Salir");
+                printf("\n\nQuiere realizar otra operacion? Responda con s o n: ");
+                fflush(stdin);
+                scanf("%c", &preguntaFinal);
+                while(preguntaFinal != 's' && preguntaFinal != 'n')
+                {
+                    printf("\nError. Responda con s o n: ");
+                    fflush(stdin);
+                    scanf("%c", &preguntaFinal);
+                }
+                if(preguntaFinal == 's')
+                {
+                    banderaOpciones = 0;
+                    banderaA = 0;
+                    banderaB = 0;
+                    printf("\n");
+                }
+                else
+                {
+                    opcion = 5;
+                    printf("\nGracias por utilizar la calculadora!\n\n");
+                }
             }
             break;
 

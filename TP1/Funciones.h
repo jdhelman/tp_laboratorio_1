@@ -46,7 +46,17 @@ double CalcularFactorial(double);
 /** \brief Valida si un numero es entero
  *
  * \param  int El numero a ser validado
- * \return int El
+ * \return int El resultado de la validacion: 1 verdadero, 0 falso
  *
  */
 int ValidarEntero(float numero);
+
+void Menu1();
+
+void Menu2(float);
+
+void Menu3(float, float);
+
+void Menu4();
+
+
