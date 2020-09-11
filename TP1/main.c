@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
 #include "Funciones.h"
 
 int main()
@@ -17,14 +15,13 @@ int main()
     int banderaA;
     int banderaB;
     int banderaOpciones;
-    int validacionEnteroA;
-    int validacionEnteroB;
+    int validacionEnteroPositivoA;
+    int validacionEnteroPositivoB;
     char preguntaFinal;
 
     banderaA = 0;
     banderaB = 0;
     banderaOpciones = 0;
-
 
     do
     {
@@ -59,7 +56,7 @@ int main()
             printf("Ingrese el primer operando: ");
             scanf("%f", &primerNumero);
             printf("\n");
-            validacionEnteroA = ValidarEntero(primerNumero);
+            validacionEnteroPositivoA = ValidarEnteroPositivo(primerNumero);
             banderaOpciones = 1;
             banderaA = 1;
             break;
@@ -74,7 +71,7 @@ int main()
                 printf("Ingrese el segundo operando: ");
                 scanf("%f", &segundoNumero);
                 printf("\n");
-                validacionEnteroB = ValidarEntero(segundoNumero);
+                validacionEnteroPositivoB = ValidarEnteroPositivo(segundoNumero);
                 banderaB = 1;
                 banderaOpciones = 2;
             }
@@ -97,7 +94,7 @@ int main()
                 }
                 multiplicacion = Multiplicar(primerNumero, segundoNumero);
 
-                if(validacionEnteroA == 1)
+                if(validacionEnteroPositivoA == 1)
                 {
                     factorialA = CalcularFactorial(primerNumero);
                 }
@@ -106,7 +103,7 @@ int main()
                     factorialA = 0;
                 }
 
-                if(validacionEnteroB == 1)
+                if(validacionEnteroPositivoB == 1)
                 {
                     factorialB = CalcularFactorial(segundoNumero);
                 }
@@ -116,6 +113,7 @@ int main()
                 }
                 banderaOpciones = 3;
             }
+
             break;
 
         case 4:
@@ -184,9 +182,7 @@ int main()
             printf("\nGracias por utilizar la calculadora!\n\n");
             break;
       }
-
     } while(opcion != 5);
-
 
     return 0;
 }

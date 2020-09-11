@@ -1,4 +1,5 @@
 #include "Funciones.h"
+#include <stdio.h>
 
 float Sumar(float primerNumero, float segundoNumero)
 {
@@ -47,23 +48,23 @@ double CalcularFactorial(double numero)
     return factorial;
 }
 
-int ValidarEntero(float numero)
+int ValidarEnteroPositivo(float numero)
 {
-    int validacionEntero;
-    int numeroEntero;
+    int validacionEnteroPositivo;
+    int numeroEnteroPositivo;
 
-    numeroEntero = numero;
+    numeroEnteroPositivo = numero;
 
-    if((numero - numeroEntero)|| numero < 0)
+    if((numero - numeroEnteroPositivo)|| numero < 0)
     {
-        validacionEntero = 0;
+        validacionEnteroPositivo = 0;
     }
     else
     {
-        validacionEntero = 1;
+        validacionEnteroPositivo = 1;
     }
 
-    return validacionEntero;
+    return validacionEnteroPositivo;
 }
 
 void Menu1()
