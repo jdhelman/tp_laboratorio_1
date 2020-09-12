@@ -36,32 +36,30 @@ double CalcularFactorial(double numero);
 /** \brief Valida si un numero es entero positivo
  * \param  int El numero a ser validado
  * \return int El resultado de la validacion: 1 verdadero, 0 falso
- *
  */
 int ValidarEnteroPositivo(float numero);
 
-/** \brief Muestra un menu con las opciones disponibles al usuario al momento de ejecutar la calculadora
- * \return void El menu a invocar generado implicitamente
+/** \brief Muestra un menu con las opciones disponibles al momento de ejecutar la calculadora
+ * \       que dependera de lo que seleccione el usuario para que vaya cambiando entre un menu u otro
+ * \param primerNumero float El primer operando que ingresara el usuario
+ * \param segundoNumero float El segundo operando que ingresara el usuario
+ * \param banderaA int es la bandera para indicar que el usuario ingreso el primer operando
+ * \param banderaB int es la bandera para indicar que el usuario ingreso el segundo operando
+ * \param opcion int es la opcion que ingreso el usuario que puede variar entre 1 y 5
+ * \param banderaOpciones int es la bandera para indicar en cual opcion ingreso el usuario para mantener un flujo
+ * \param suma float es el resultado de la suma entre los operandos
+ * \param resta float es el resultado de la resta entre los operandos
+ * \param division float es el resultado de la division entre los operandos
+ * \param multiplicacion float es el resultado de la multiplicacion entre los operandos
+ * \param factorialA double es el resultado del factorial del primer operando
+ * \param factorialB double es el resultado del factorial del segundo operando
+ * \return void El menu a invocado segun la instancia que de la operacion de la calculadora
+ *
  */
-void Menu1();
+void MenuCalculadora(float, float, int, int, int, int, float, float, float, float, double, double);
 
-/** \brief Muestra un menu con las opciones disponibles al usuario despues de haber ingresado el primer operado
- * \param float El primer operando que ingreso el usuario
- * \return void El menu a invocado
- */
-void Menu2(float );
 
-/** \brief Muestra un menu con las opciones disponibles al usuario despues de haber ingresado dos operandos
- * \param float El primer operando que ingreso el usuario
- * \param float El segundo operando que ingreso el usuario
- * \return void El menu a invocado
- */
-void Menu3(float, float);
 
-/** \brief Muestra una parte del menu de la calculadora hasta que se pida mostrar los resultados
- * \return void El menu a invocar generado implicitamente
- */
-void Menu4();
 
 
 
