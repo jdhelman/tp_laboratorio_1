@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1601656180 source:c:\users\daniel\documents\carpetas clonadas\tp_laboratorio_1\tp2\tp2\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"Funciones.h"
+	"Empleados.h"
+
+1601655607 source:c:\users\daniel\documents\carpetas clonadas\tp_laboratorio_1\tp2\tp2\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Funciones.h"
+	"Empleados.h"
+
+1601655607 c:\users\daniel\documents\carpetas clonadas\tp_laboratorio_1\tp2\tp2\funciones.h
+
+1601655607 source:c:\users\daniel\documents\carpetas clonadas\tp_laboratorio_1\tp2\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+	"Empleados.h"
+
+1601655607 c:\users\daniel\documents\carpetas clonadas\tp_laboratorio_1\tp2\tp2\empleados.h
+
